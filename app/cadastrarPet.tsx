@@ -145,7 +145,7 @@ export default function CadastrarPetScreen() {
     };
   const etapaAnterior = () => setEtapa((prev) => prev - 1);
 
-  // --- Nova Função de Validação de Data ---
+  // --- Função de Validação de Data ---
   const isValidDate = (dateString: string): boolean => {
     // 1. Verifica o formato DD/MM/AAAA
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dateString)) {
@@ -178,6 +178,23 @@ export default function CadastrarPetScreen() {
 
     return true;
   };
+
+  // --- NOVA FUNÇÃO DE VALIDAÇÃO INSTANTÂNEA ---
+  const validateDateOnBlur = () => {
+    // Não valida se o checkbox "Não sei" estiver marcado ou se o campo estiver vazio
+    if (naoSeiDataNascimento || !dataNascimento) {
+      return;
+    }
+    
+    // Se o campo tiver conteúdo, valida
+    if (!isValidDate(dataNascimento)) {
+      Alert.alert(
+        'Data Inválida',
+        'A data de nascimento digitada não é válida ou está no futuro. Por favor, corrija (DD/MM/AAAA).'
+      );
+    }
+  };
+  // ------------------------------------------------
 
   const proximaEtapa = () => {
     if (etapa === 1 && (!nome.trim() || !especie || !raca)) {
@@ -339,7 +356,7 @@ export default function CadastrarPetScreen() {
     try {
       const response = await fetch(`${API_URL}/pets`, {
         method: 'POST',
-        headers: { ...getAuthHeader(), 'Content-Type': 'multipart/form-data' },
+        headers: { ...getAuthHeader(), 'Content-Type': 'multipart-form-data' },
         body: formData,
       });
       const data = await response.json();
@@ -696,6 +713,9 @@ export default function CadastrarPetScreen() {
                   maxLength={10}
                   keyboardType="number-pad"
                   editable={!naoSeiDataNascimento}
+                  // --- ADICIONADO onBlur ---
+                  onBlur={validateDateOnBlur}
+                  // -------------------------
                 />
                 <TouchableOpacity 
                   onPress={openDatePicker} 
