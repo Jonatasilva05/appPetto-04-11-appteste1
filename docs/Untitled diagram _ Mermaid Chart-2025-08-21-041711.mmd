@@ -1,0 +1,77 @@
+graph TD
+    subgraph "Frontend (React Native App)"
+        direction LR
+        
+        subgraph "Fluxo de Autenticação (app/(auth))"
+            Login["Login Screen<br>(login.tsx)"]
+            Cadastro["Cadastro Screen<br>(cadastro.tsx)"]
+            Recuperar["Recuperar Senha<br>(recuperarSenha.tsx)"]
+            Verificar["Verificar Resposta<br>(verificarResposta.tsx)"]
+            Redefinir["Redefinir Senha<br>(redefinirSenha.tsx)"]
+        end
+        
+        subgraph "Área Logada (app/(tabs))"
+            Home["Home Screen<br>(index.tsx)"]
+            Carteira["Carteira do Pet<br>(vacinacao.tsx)"]
+            Config["Configurações<br>(config.tsx)"]
+        end
+        
+        subgraph "Fluxos Modais"
+            AddPet["Cadastrar Pet<br>(cadastrarPet.tsx)"]
+            EditPet["Editar Pet<br>(editarPet.tsx)"]
+        end
+    end
+
+    subgraph "Backend (Node.js API)"
+        API_Auth["Rotas de Autenticação<br>(/api/auth)"]
+        API_Pets["Rotas de Pets<br>(/api/pets)"]
+    end
+    
+    subgraph "Dados"
+        subgraph "MySQL (petto.sql)"
+            MySQL_Usuarios[Tabela 'usuarios']
+            MySQL_Pets[Tabela 'pets']
+            MySQL_Saude["Tabelas 'vacinas', 'medicamentos'"]
+        end
+        
+        subgraph "Arquivos Estáticos (data/)"
+            Data_Form["Dados para Formulários<br>(databasePets.ts, databaseMedi.ts)"]
+            Data_Enciclop["Enciclopédias<br>(databaseBreeds.ts, encyclopediaMedi.ts)"]
+        end
+    end
+    
+    %% --- CONEXÕES ---
+
+    %% Fluxo de Navegação do Usuário (Frontend)
+    Login -- "Esqueci Senha" --> Recuperar
+    Recuperar -- "E-mail OK" --> Verificar
+    Verificar -- "Resposta OK" --> Redefinir
+    Redefinir -- "Senha OK" --> Login
+    Login -- "Não tem conta?" --> Cadastro
+    Cadastro -- "Já tem conta" --> Login
+    Login -- "Login OK" --> Home
+    Home -- "Ver Pet" --> Carteira
+    Home -- "Adicionar Pet" --> AddPet
+    Carteira -- "Opção Editar" --> EditPet
+    Config -- "Logout" --> Login
+
+    %% Comunicação Frontend <--> Backend
+    Login -- "Envia credenciais" --> API_Auth
+    Cadastro -- "Envia dados do novo usuário" --> API_Auth
+    Recuperar -- "Verifica e-mail" --> API_Auth
+    Verificar -- "Verifica resposta" --> API_Auth
+    Redefinir -- "Redefine senha" --> API_Auth
+    
+    Home -- "Busca lista de pets" --> API_Pets
+    Carteira -- "Busca detalhes do pet" --> API_Pets
+    AddPet -- "Envia dados do novo pet" --> API_Pets
+    EditPet -- "Envia dados atualizados" --> API_Pets
+
+    %% Comunicação Backend <--> Banco de Dados
+    API_Auth -- "Lê/Escreve em" --> MySQL_Usuarios
+    API_Pets -- "Lê/Escreve em" --> MySQL_Pets
+    MySQL_Pets -- "Relaciona-se com" --> MySQL_Saude
+    
+    %% Leitura de Dados Estáticos (Frontend)
+    Carteira -- "Lê enciclopédias" --> Data_Enciclop
+    AddPet -- "Lê dados para formulários" --> Data_Form

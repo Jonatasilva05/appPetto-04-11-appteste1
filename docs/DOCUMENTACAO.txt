@@ -1,0 +1,15 @@
+# Documentação do App-Petto
+### Com base no WebSite Petto obteve-se a ideia de desenvolver esse APP, que por sua vez está em fase de desenvolvimento para fins acadêmicos assim como o WebSite
+
+## Pra que serve o App?
+### O app servirá como meio mais rapido e eficaz de obter as informações necessárias do seu Pet, da veterinária, e dos cuidados que todos temos com nossos PETs.
+### Vale ressaltar que assim que estiver com todas as suas funcionalidades completas será de maneira inedita e unica, seu uso sera fundamental para os tutores, o veterinario, e a o local onde o Pet se encontrara para obter seus cuidados.
+
+
+
+
+"OBSERVAÇÕES"
+Depois de instalar pela documentação do expo.dev
+Crie um arquivo chamado metro.config.js
+ao executar npm start ou npx expo start
+coloque no final -c para limpar o cache do app e nao executar o armazenamento antigo

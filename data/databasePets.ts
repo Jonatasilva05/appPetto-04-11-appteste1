@@ -1,0 +1,167 @@
+export interface Breed {
+  value: string;
+  label: string;
+}
+
+export interface Species {
+  value: string;
+  label: string;
+  breeds: Breed[];
+}
+
+export const PET_DATA: Species[] = [
+  {
+    value: 'cachorro',
+    label: 'Cachorro 🐶',
+    breeds: [
+      { value: 'nao_sei', label: 'Não sei a raça' },
+      { value: 'vira_lata', label: 'Vira-lata (SRD)' },
+      { value: 'afghan_hound', label: 'Afghan Hound' },
+      { value: 'airedale_terrier', label: 'Airedale Terrier' },
+      { value: 'akita', label: 'Akita' },
+      { value: 'american_staffordshire_terrier', label: 'American Staffordshire Terrier' },
+      { value: 'basenji', label: 'Basenji' },
+      { value: 'basset_hound', label: 'Basset Hound' },
+      { value: 'beagle', label: 'Beagle' },
+      { value: 'bernese_mountain_dog', label: 'Bernese Mountain Dog' },
+      { value: 'bichon_frise', label: 'Bichon Frisé' },
+      { value: 'bloodhound', label: 'Bloodhound' },
+      { value: 'border_collie', label: 'Border Collie' },
+      { value: 'borzoi', label: 'Borzoi' },
+      { value: 'boston_terrier', label: 'Boston Terrier' },
+      { value: 'boxer', label: 'Boxer' },
+      { value: 'bulldog', label: 'Bulldog Inglês' },
+      { value: 'bulldog_frances', label: 'Bulldog Francês' },
+      { value: 'bull_terrier', label: 'Bull Terrier' },
+      { value: 'cavalier_king_charles_spaniel', label: 'Cavalier King Charles Spaniel' },
+      { value: 'chihuahua', label: 'Chihuahua' },
+      { value: 'chow_chow', label: 'Chow Chow' },
+      { value: 'cocker_spaniel', label: 'Cocker Spaniel' },
+      { value: 'dachshund', label: 'Dachshund (Salsicha)' },
+      { value: 'dalmata', label: 'Dálmata' },
+      { value: 'doberman', label: 'Doberman' },
+      { value: 'dogue_alemao', label: 'Dogue Alemão' },
+      { value: 'fila_brasileiro', label: 'Fila Brasileiro' },
+      { value: 'fox_terrier', label: 'Fox Terrier' },
+      { value: 'golden_retriever', label: 'Golden Retriever' },
+      { value: 'husky_siberiano', label: 'Husky Siberiano' },
+      { value: 'jack_russell_terrier', label: 'Jack Russell Terrier' },
+      { value: 'kuvasz', label: 'Kuvasz' },
+      { value: 'labrador_retriever', label: 'Labrador Retriever' },
+      { value: 'lhasa_apso', label: 'Lhasa Apso' },
+      { value: 'maltes', label: 'Maltês' },
+      { value: 'mastiff', label: 'Mastiff' },
+      { value: 'pastor_alemao', label: 'Pastor Alemão' },
+      { value: 'pastor_de_shetland', label: 'Pastor de Shetland' },
+      { value: 'pequines', label: 'Pequinês' },
+      { value: 'pinscher', label: 'Pinscher' },
+      { value: 'pit_bull', label: 'Pit Bull' },
+      { value: 'poodle', label: 'Poodle' },
+      { value: 'pug', label: 'Pug' },
+      { value: 'rottweiler', label: 'Rottweiler' },
+      { value: 'sao_bernardo', label: 'São Bernardo' },
+      { value: 'schnauzer', label: 'Schnauzer' },
+      { value: 'shar_pei', label: 'Shar-Pei' },
+      { value: 'shiba_inu', label: 'Shiba Inu' },
+      { value: 'shih_tzu', label: 'Shih Tzu' },
+      { value: 'spitz_alemao', label: 'Spitz Alemão (Lulu da Pomerânia)' },
+      { value: 'staffordshire_bull_terrier', label: 'Staffordshire Bull Terrier' },
+      { value: 'weimaraner', label: 'Weimaraner' },
+      { value: 'welsh_corgi', label: 'Welsh Corgi' },
+      { value: 'whippet', label: 'Whippet' },
+      { value: 'yorkshire_terrier', label: 'Yorkshire Terrier' },
+    ],
+  },
+  {
+    value: 'gato',
+    label: 'Gato 🐈',
+    breeds: [
+      { value: 'nao_sei', label: 'Não sei a raça' },
+      { value: 'vira_lata', label: 'Vira-lata (SRD)' },
+      { value: 'sem_raca_definida', label: 'Sem Raça Definida' },
+      { value: 'abissinio', label: 'Abissínio' },
+      { value: 'angora', label: 'Angorá' },
+      { value: 'bengal', label: 'Bengal' },
+      { value: 'birmanes', label: 'Birmanês' },
+      { value: 'bombaim', label: 'Bombaim' },
+      { value: 'british_shorthair', label: 'British Shorthair' },
+      { value: 'chartreux', label: 'Chartreux' },
+      { value: 'cornish_rex', label: 'Cornish Rex' },
+      { value: 'devon_rex', label: 'Devon Rex' },
+      { value: 'exotico', label: 'Exótico' },
+      { value: 'himalaio', label: 'Himalaia' },
+      { value: 'maine_coon', label: 'Maine Coon' },
+      { value: 'manx', label: 'Manx' },
+      { value: 'noruegues_da_floresta', label: 'Norueguês da Floresta' },
+      { value: 'persa', label: 'Persa' },
+      { value: 'ragdoll', label: 'Ragdoll' },
+      { value: 'sagrado_da_birmania', label: 'Sagrado da Birmânia' },
+      { value: 'siberiano', label: 'Siberiano' },
+      { value: 'siames', label: 'Siamês' },
+      { value: 'somali', label: 'Somali' },
+      { value: 'sphynx', label: 'Sphynx' },
+      { value: 'tonquines', label: 'Tonquinês' },
+    ],
+  },
+  {
+    value: 'passaro',
+    label: 'Pássaro 🐦',
+    breeds: [
+      { value: 'nao_se_aplica', label: 'Não se aplica' },
+      { value: 'agapornis', label: 'Agapornis' },
+      { value: 'calopsita', label: 'Calopsita' },
+      { value: 'canario', label: 'Canário' },
+      { value: 'curio', label: 'Curió' },
+      { value: 'diamante_de_gould', label: 'Diamante de Gould' },
+      { value: 'manon', label: 'Manon' },
+      { value: 'papagaio', label: 'Papagaio' },
+      { value: 'periquito', label: 'Periquito' },
+      { value: 'trinca_ferro', label: 'Trinca-ferro' },
+    ],
+  },
+  {
+    value: 'roedor',
+    label: 'Roedor 🐹',
+    breeds: [
+      { value: 'nao_se_aplica', label: 'Não se aplica' },
+      { value: 'chinchila', label: 'Chinchila' },
+      { value: 'gerbil', label: 'Gerbil (Esquilo da Mongólia)' },
+      { value: 'hamster_anao_russo', label: 'Hamster Anão Russo' },
+      { value: 'hamster_sirio', label: 'Hamster Sírio' },
+      { value: 'porquinho_da_india', label: 'Porquinho-da-Índia' },
+      { value: 'twister', label: 'Rato Twister' },
+    ],
+  },
+  {
+    value: 'peixe',
+    label: 'Peixe 🐠',
+    breeds: [
+        { value: 'nao_se_aplica', label: 'Não se aplica' },
+        { value: 'acara_bandeira', label: 'Acará Bandeira' },
+        { value: 'beta', label: 'Beta' },
+        { value: 'carpa', label: 'Carpa' },
+        { value: 'guppy', label: 'Guppy (Lebiste)' },
+        { value: 'kingui', label: 'Kinguio (Peixinho Dourado)' },
+        { value: 'molinesia', label: 'Molinésia' },
+        { value: 'neon', label: 'Neon' },
+        { value: 'plati', label: 'Plati' },
+    ]
+  },
+  {
+      value: 'tartaruga',
+      label: 'Tartaruga 🐢',
+      breeds: [
+        { value: 'nao_se_aplica', label: 'Não se aplica' },
+        { value: 'jabuti_piranga', label: 'Jabuti Piranga' },
+        { value: 'tigre_dagua', label: 'Tigre D\'água' },
+      ]
+  },
+   {
+      value: 'outro',
+      label: 'Outro',
+      breeds: [
+        { value: 'nao_se_aplica', label: 'Não se aplica' },
+      ]
+  }
+];
+

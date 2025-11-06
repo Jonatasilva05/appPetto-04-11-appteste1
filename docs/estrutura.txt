@@ -1,0 +1,56 @@
+appPetto/
+|
+|-- .env                     // Configurações do backend (banco de dados, segredos)
+|-- petto.sql                // Arquivo com a estrutura e dados do banco de dados MySQL
+|
+|-- api/
+|   |-- api.js               // Seu servidor backend completo (Node.js + Express)
+|   |-- uploads/             // Pasta onde as fotos dos pets são salvas
+|
+|-- data/
+|   |-- databasePets.ts      // Lista de espécies/raças para os formulários
+|   |-- databaseMedi.ts      // Lista de vacinas/medicamentos para os formulários
+|   |-- databaseBreeds.ts    // Enciclopédia detalhada sobre as raças
+|   |-- encyclopediaMedi.ts  // Enciclopédia detalhada sobre saúde
+|
+|-- app/                     // Pasta principal do seu aplicativo React Native (Expo)
+|   |
+|   |-- (auth)/              // Grupo de telas para usuários NÃO logados
+|   |   |-- login.tsx
+|   |   |-- cadastro.tsx
+|   |
+|   |-- (tabs)/              // Grupo de telas principais para usuários LOGADOS
+|   |   |-- _layout.tsx      // Define a aparência e estrutura da barra de abas
+|   |   |-- index.tsx        // Tela inicial (Home) com a lista de pets
+|   |   |-- vacinacao.tsx    // Tela da "Carteirinha" com detalhes do pet
+|   |   |-- config.tsx       // Tela de configurações (logout)
+|   |   |-- contato.tsx      // Tela de contato
+|   |
+|   |-- components/          // Componentes reutilizáveis da interface
+|   |   |-- PetCard.tsx
+|   |   |-- PetCardSkeleton.tsx
+|   |   |-- BreedInfoCard.tsx
+|   |   |-- HistoricoItemCard.tsx
+|   |
+|   |-- context/
+|   |   |-- AuthContext.tsx  // Gerencia o estado de login e sessão do usuário
+|   |
+|   |-- hooks/
+|   |   |-- useProtectedRoute.ts // Lógica para proteger rotas
+|   |
+|   |-- utils/
+|   |   |-- dateFormatter.ts // Funções úteis (ex: formatar data)
+|   |
+|   |-- _layout.tsx          // Layout principal/raiz do aplicativo (Stack Navigator)
+|   |-- +html.tsx            // Configuração do HTML para a versão web
+|   |-- +not-found.tsx       // Tela de erro 404 (página não encontrada)
+|   |
+|   |-- cadastrarPet.tsx     // Telas de fluxo que abrem sobre as abas
+|   |-- editarPet.tsx
+|   |-- recuperarSenha.tsx
+|   |-- verificarResposta.tsx
+|   |-- redefinirSenha.tsx
+|
+|-- assets/                  // Pasta para imagens, fontes, etc.
+    |-- imagess/
+    |-- fonts/
